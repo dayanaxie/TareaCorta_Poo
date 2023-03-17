@@ -13,6 +13,8 @@ public class App {
 
         System.out.println("---------------------------");
         Triangulo trianguloOne = new Triangulo(4, 2);
+        int result2 = recOne.compareTo(trianguloOne);
+        System.out.println("Resultado de la comparacion: " + result2);
         System.out.println("Lados: " + trianguloOne.cantidadLados());
 
     }

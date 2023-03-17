@@ -1,4 +1,4 @@
-public class Rectangulo extends Figura implements Comparable<Rectangulo>{
+public class Rectangulo extends Figura implements Comparable<Figura>{
     private double base;
     private double altura;
     private int lados;
@@ -15,13 +15,14 @@ public class Rectangulo extends Figura implements Comparable<Rectangulo>{
     }
 
 
-    public int compareTo(Rectangulo rectPorComparar) {
-        double areaPorComparar = rectPorComparar.calcularArea();
+    
+    public int compareTo(Figura pFigura) {
+        double areaPorComparar = pFigura.calcularArea();
         double miArea = this.calcularArea();
 
         if(miArea == areaPorComparar){
             // si ambas figuras tienen la misma área, revisará el número de lados
-            if(rectPorComparar.getLados() == this.lados){
+            if(pFigura.cantidadLados() == this.lados){
                 return 0;
             }else{
                 return -1;

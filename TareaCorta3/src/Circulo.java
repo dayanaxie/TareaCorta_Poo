@@ -1,4 +1,4 @@
-public class Circulo extends Figura {
+public class Circulo extends Figura implements Comparable<Figura>{
     private double radio;
     private double pi;
     public int lados;
@@ -14,14 +14,13 @@ public class Circulo extends Figura {
         return pi * radio * radio;
     }
 
-    // me falta el compare to
-    public int compareTo(Circulo circuloPorComparar) {
-        double areaPorComparar = circuloPorComparar.calcularArea();
+    public int compareTo(Figura pFigura) {
+        double areaPorComparar = pFigura.calcularArea();
         double miArea = this.calcularArea();
 
         if(miArea == areaPorComparar){
             // si ambas figuras tienen la misma área, revisará el número de lados
-            if(circuloPorComparar.getLados() == this.lados){
+            if(pFigura.cantidadLados() == this.lados){
                 return 0;
             }else{
                 return -1;
@@ -56,9 +55,7 @@ public class Circulo extends Figura {
         this.pi = pi;
     }
 
-    public int getLados() {
-        return lados;
-    }
+    
 
     public void setLados(int lados) {
         this.lados = lados;

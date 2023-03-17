@@ -1,4 +1,4 @@
-public class Triangulo extends Figura {
+public class Triangulo extends Figura implements Comparable<Figura>{
     private double base;
     private double altura;
     private int lados;
@@ -14,13 +14,13 @@ public class Triangulo extends Figura {
         return (base * altura) / 2;
     }
 
-    public int compareTo(Triangulo trianguloPorComparar) {
-        double areaPorComparar = trianguloPorComparar.calcularArea();
+    public int compareTo(Figura pFigura) {
+        double areaPorComparar = pFigura.calcularArea();
         double miArea = this.calcularArea();
 
         if(miArea == areaPorComparar){
             // si ambas figuras tienen la misma área, revisará el número de lados
-            if(trianguloPorComparar.getLados() == this.lados){
+            if(pFigura.cantidadLados() == this.lados){
                 return 0;
             }else{
                 return -1;
